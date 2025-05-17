@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Add Expense to {{ split.name }} | {{ block.super }}{% endblock %}
+
+{% block content %}
+<h1>Add Expense to {{ split.name }}</h1>
+
+<form method="post" class="mt-4">
+    {% csrf_token %}
+    
+    <div class="mb-3">
+        <label for="{{ form.description.id_for_label }}" class="form-label">Description</label>
+        {{ form.description }}
+    </div>
+    
+    <div class="mb-3">
+        <label for="{{ form.amount.id_for_label }}" class="form-label">Amount</label>
+        {{ form.amount }}
+    </div>
+    
+    <div class="mb-3">
+        <label for="{{ form.paid_by.id_for_label }}" class="form-label">Paid By</label>
+        {{ form.paid_by }}
+    </div>
+    
+    <div class="mb-3">
+        <label for="{{ form.date.id_for_label }}" class="form-label">Date</label>
+        {{ form.date }}
+    </div>
+    
+    <div class="mb-3">
+        <button type="submit" name="add_another" class="btn btn-secondary">Add & Add Another</button>
+        <button type="submit" class="btn btn-primary">Add & Done</button>
+    </div>
+</form>
+{% endblock %}
