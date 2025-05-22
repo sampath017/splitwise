@@ -1,3 +1,7 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'polls/style.css' %}">
+
 {% if latest_questions %}
 <ul>
     {% for q in latest_questions %}
@@ -7,7 +11,3 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
-
-{% if latest_questions|length > 1 %}
-    <h1>{{ latest_questions|length }}</h1>
-{% endif%}

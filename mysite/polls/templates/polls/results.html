@@ -1,0 +1,8 @@
+<fieldset>
+    <legend>Votes for <strong>{{ question.question_text }}</strong></legend>
+    {% for c in question.choice_set.all %}
+        <p>{{ c.choice_text }}: {{ c.votes }}</p>
+    {% endfor %}
+</fieldset>
+
+<a href="{% url 'polls:detail' question.id%}">Vote again?</a>
