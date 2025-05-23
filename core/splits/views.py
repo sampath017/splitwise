@@ -1,19 +1,19 @@
-# from django.shortcuts import render, get_object_or_404
-# from django.http import HttpResponseRedirect
-# from .models import Question
-# from django.utils.datastructures import MultiValueDictKeyError
-# from django.urls import reverse
-# from django.db.models import F
-# from django.views import generic
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
+from .models import Split, Participant, Expense
+from django.utils.datastructures import MultiValueDictKeyError
+from django.urls import reverse
+from django.db.models import F
+from django.views import generic
 
 
-# class HomeView(generic.ListView):
-#     template_name = "splits/home.html"
-#     context_object_name = "latest_questions"
+class HomeView(generic.ListView):
+    template_name = "splits/home.html"
+    context_object_name = "latest_splits"
 
-#     def get_queryset(self):
-#         """Return the last five published questions."""
-#         return Question.objects.order_by("-created_date")[:5]
+    def get_queryset(self):
+        """Return the last five created splits."""
+        return Split.objects.order_by("-created_date")[:5]
 
 
 # class DetailView(generic.DetailView):
