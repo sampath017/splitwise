@@ -1,0 +1,14 @@
+{% extends 'splits/base.html' %}
+{% block content %}
+  {% if latest_questions %}
+    <ul>
+      {% for q in latest_questions %}
+        <li>
+          <a href="{% url 'splits:detail' q.id %}">{{ q.question_text }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No splits are available.</p>
+  {% endif %}
+{% endblock %}

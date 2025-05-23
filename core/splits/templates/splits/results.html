@@ -1,3 +1,6 @@
+{% extends 'splits/base.html' %}
+{% block content %}
+
 <fieldset>
     <legend>Votes for <strong>{{ question.question_text }}</strong></legend>
     {% for c in question.choice_set.all %}
@@ -5,4 +8,6 @@
     {% endfor %}
 </fieldset>
 
-<a href="{% url 'polls:detail' question.id%}">Vote again?</a>
+<a href="{% url 'splits:detail' question.id%}">Vote again?</a>
+
+{% endblock %}

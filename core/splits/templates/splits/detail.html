@@ -1,4 +1,7 @@
-<form action="{% url 'polls:votes' question.id %}" method="post">
+{% extends 'splits/base.html' %}
+{% block content %}
+
+<form action="{% url 'splits:votes' question.id %}" method="post">
 {% csrf_token %} 
 
 <fieldset>
@@ -13,3 +16,5 @@
 <input type="submit" value="vote">
 
 </form>
+
+{% endblock %}
